@@ -275,6 +275,57 @@
       object-fit: contain;
     }
 
+    .logo-variants {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .logo-variant {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-variant.dark {
+      border-color: #12323B;
+      background: var(--ink);
+    }
+
+    .logo-variant img {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      align-self: center;
+      margin: 8px 0 14px;
+    }
+
+    .logo-variant b {
+      display: block;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.18;
+    }
+
+    .logo-variant p {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .logo-variant.dark b,
+    .logo-variant.dark p {
+      color: rgba(255, 255, 255, .9);
+    }
+
     .rule-list {
       display: grid;
       gap: 12px;
@@ -385,6 +436,11 @@
     .usage-panel {
       display: grid;
       gap: 12px;
+    }
+
+    .imt-data,
+    .mini-table {
+      font-variant-numeric: tabular-nums;
     }
 
     .usage {
@@ -548,6 +604,94 @@
       background: var(--coral);
     }
 
+    .product-proof {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .mini-table,
+    .no-go {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .mini-table h3,
+    .no-go h3 {
+      margin-bottom: 14px;
+      color: var(--ink);
+      font-size: 22px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 12px;
+      align-items: center;
+      min-height: 46px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .row.header {
+      min-height: 36px;
+      border-top: 0;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 800;
+    }
+
+    .status:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .status.ok:before {
+      background: var(--success);
+    }
+
+    .status.warn:before {
+      background: var(--warning);
+    }
+
+    .status.crit:before {
+      background: var(--critical);
+      border-radius: 2px;
+    }
+
+    .no-go-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .no-go-item {
+      min-height: 88px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      background: var(--soft);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
     .next-box {
       padding: 28px;
       border-radius: 8px;
@@ -574,7 +718,12 @@
         grid-template-columns: 1fr;
       }
 
+      .product-proof {
+        grid-template-columns: 1fr;
+      }
+
       .decision-grid,
+      .logo-variants,
       .palette-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -600,9 +749,16 @@
 
     @media (max-width: 620px) {
       .decision-grid,
+      .logo-variants,
       .palette-grid,
       .swatches {
         grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 10px 0;
       }
 
       .rule,
@@ -637,6 +793,7 @@
           <a href="#approval">Утверждаем</a>
           <a href="#palette">Цвета</a>
           <a href="#type">Шрифты</a>
+          <a href="#media">Применение</a>
           <a href="#mockups">Носители</a>
         </nav>
       </div>
@@ -645,11 +802,11 @@
         <div>
           <div class="eyebrow">Единый формат стиля v0.1</div>
           <h1>Спокойная медицинская точность + современный продуктовый слой</h1>
-          <p class="lead">Одна система для презентаций, документов, demo, dashboard, сайта и публичных материалов. Логотип сохраняется как геометрия; менять можно только цветовые версии после утверждения палитры.</p>
+          <p class="lead">Универсальный единый корпоративный и узнаваемый стиль для сайта компании, продуктовых лендингов, презентаций, PDF, печати, demo, dashboard и публичных материалов. Логотип сохраняется как геометрия; менять можно только цветовые версии после утверждения палитры.</p>
           <div class="hero-points">
             <div class="pill">Основа: медицинское доверие</div>
             <div class="pill">Слой: продуктовая аналитика</div>
-            <div class="pill">Акцент: публичные носители</div>
+            <div class="pill">Акцент: узнаваемое внимание</div>
           </div>
         </div>
         <div class="logo-stage" aria-label="Исходный логотип без изменения геометрии">
@@ -684,8 +841,8 @@
           </div>
           <div class="decision">
             <div class="bar"></div>
-            <b>Публичный сигнал</b>
-            <p>Коралл и янтарь точечно: обложки, соцсети, акцент на важном. Не больше 5-10% макета.</p>
+            <b>Узнаваемый акцент</b>
+            <p>Янтарь, mint, indigo или коралл точечно: цепляет внимание, но не кричит. Обычно 5-10% макета.</p>
           </div>
         </div>
       </div>
@@ -704,7 +861,7 @@
           <div class="rule-list">
             <div class="rule">
               <div class="rule-label">Можно</div>
-              <p>Full color, mono teal, mono ink, mono white. Только цветовые версии без изменения формы.</p>
+              <p>Full color, mono ink, mono white, при отдельном утверждении mono teal. Акцентные цвета для логотипа запрещены.</p>
             </div>
             <div class="rule">
               <div class="rule-label">Нельзя</div>
@@ -720,6 +877,36 @@
             </div>
           </div>
         </div>
+        <div class="logo-variants" aria-label="Цветовые версии существующего знака">
+          <div class="logo-variant">
+            <img src="assets/logo-refresh-teal-preview.png" alt="Логотип ИнтелиМед в обновленной teal-гамме">
+            <div>
+              <b>Full color refresh</b>
+              <p>Лучший кандидат для основной версии: ближе к новой палитре, но без изменения формы.</p>
+            </div>
+          </div>
+          <div class="logo-variant">
+            <img src="assets/logo-mono-ink-preview.png" alt="Монохромная темная версия логотипа ИнтелиМед">
+            <div>
+              <b>Mono ink</b>
+              <p>Для документов, печати, строгих PDF и случаев, где нужна максимальная читаемость.</p>
+            </div>
+          </div>
+          <div class="logo-variant dark">
+            <img src="assets/logo-mono-white-preview.png" alt="Белая версия логотипа ИнтелиМед на темном фоне">
+            <div>
+              <b>Mono white</b>
+              <p>Для темных титульных слайдов, фотофона и заставок с устойчивым контрастом.</p>
+            </div>
+          </div>
+          <div class="logo-variant">
+            <img src="assets/logo-mono-brand-teal-preview.png" alt="Teal-версия логотипа ИнтелиМед">
+            <div>
+              <b>Mono brand teal</b>
+              <p>Служебная интерфейсная версия. Не заменяет основную full color версию.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -727,7 +914,7 @@
       <div class="shell">
         <div class="section-head">
           <h2>Что утверждаем сегодня</h2>
-          <p>Эта версия не просит выбрать вкус из пяти вариантов. Она фиксирует управляемую систему, которую потом можно быстро развернуть в PPTX, PDF, сайт и социальные карточки.</p>
+          <p>Эта версия не просит выбрать вкус из пяти вариантов. Она фиксирует управляемую систему, которую потом можно быстро развернуть в сайт компании, продуктовые лендинги, PPTX, PDF, печать и digital.</p>
         </div>
         <div class="decision-grid">
           <div class="decision">
@@ -738,7 +925,7 @@
           <div class="decision">
             <div class="bar"></div>
             <b>Палитра</b>
-            <p>Teal и темный ink как база; mint, indigo, amber и coral только по роли.</p>
+            <p>Teal и темный ink как база; mint, indigo, amber и coral как умеренные узнаваемые акценты строго по роли.</p>
           </div>
           <div class="decision">
             <div class="bar"></div>
@@ -748,7 +935,38 @@
           <div class="decision">
             <div class="bar"></div>
             <b>Следующий шаг</b>
-            <p>PPTX-шаблон, технические версии знака и один рабочий dashboard/table-slide.</p>
+            <p>PPTX-шаблон, web/landing-секции, технические версии знака и один рабочий dashboard/table-slide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="media">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Один стиль для всех носителей</h2>
+          <p>Цвета и шрифты не пересобираются заново под каждый формат. Меняются плотность, сетка и роль акцента.</p>
+        </div>
+        <div class="decision-grid">
+          <div class="decision">
+            <div class="bar"></div>
+            <b>Страница компании</b>
+            <p>Светлая основа, сильный первый экран, доверительные факты, продуктовые блоки и один узнаваемый акцент.</p>
+          </div>
+          <div class="decision">
+            <div class="bar"></div>
+            <b>Лендинги продуктов</b>
+            <p>Больше dashboard, сценариев, KPI, маршрута пользователя и доказательства пользы.</p>
+          </div>
+          <div class="decision">
+            <div class="bar"></div>
+            <b>Презентации и PDF</b>
+            <p>Один вывод на экран, строгие таблицы, крупные заголовки, минимум декоративности.</p>
+          </div>
+          <div class="decision">
+            <div class="bar"></div>
+            <b>Печать и digital</b>
+            <p>Та же палитра: в печати больше темного текста и линий, в digital больше мягкого фона и data-слоя.</p>
           </div>
         </div>
       </div>
@@ -802,7 +1020,7 @@
         </div>
         <div class="next-box" style="margin-top:18px;background:linear-gradient(135deg,#12323B,#11627B)">
           <h2>Правило контраста</h2>
-          <p>Mint `#2DD4BF` и coral `#FF6F5E` не использовать как мелкий текст на светлом фоне. Это акценты для заливок, линий, крупных чисел и плашек. Основной текст держим на `#12323B`, `#11627B`, `#0F6B74` или других темных ролях.</p>
+          <p>Mint #2DD4BF и coral #FF6F5E не использовать как мелкий текст на светлом фоне. Это акценты для заливок, линий, крупных чисел и плашек. Основной текст держим на #12323B, #11627B, #0F6B74 или других темных ролях. Coral и критический красный не ставим на один экран без крайней необходимости. На одном макете выбираем один главный акцент.</p>
         </div>
       </div>
     </section>
@@ -872,11 +1090,54 @@
       </div>
     </section>
 
+    <section class="section" id="proof">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Проверка на рабочем материале</h2>
+          <p>Стиль должен выдержать не только красивую обложку, но и скучную таблицу, сроки, статусы и управленческий отчет.</p>
+        </div>
+        <div class="product-proof">
+          <div class="mini-table">
+            <h3>Фрагмент dashboard / отчет</h3>
+            <div class="row header">
+              <div>Показатель</div>
+              <div>Значение</div>
+              <div>Статус</div>
+            </div>
+            <div class="row">
+              <div>Материалы в маршруте</div>
+              <div class="imt-data">730</div>
+              <div><span class="status ok">в срок</span></div>
+            </div>
+            <div class="row">
+              <div>Результаты за период</div>
+              <div class="imt-data">123 630</div>
+              <div><span class="status">контроль</span></div>
+            </div>
+            <div class="row">
+              <div>Риск просрочки</div>
+              <div class="imt-data">14</div>
+              <div><span class="status crit">риск</span></div>
+            </div>
+          </div>
+          <div class="no-go">
+            <h3>Логотип: что нельзя</h3>
+            <div class="no-go-grid">
+              <div class="no-go-item">не поворачивать</div>
+              <div class="no-go-item">не растягивать</div>
+              <div class="no-go-item">не перекрашивать в акценты</div>
+              <div class="no-go-item">не добавлять тени и 3D</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="shell">
         <div class="next-box">
           <h2>Что выбрать перед походом к руководителю</h2>
-          <p>Для защиты концепции формулируем не процентами, а управленчески: медицинская основа, продуктовый аналитический слой и контролируемый публичный акцент. Если хочется выглядеть смелее, усиливаем продуктовый слой и медиа-акцент; если безопаснее для ЛПУ и начальства — оставляем больше белого, таблиц и teal.</p>
+          <p>Для защиты концепции формулируем не процентами, а управленчески: универсальный корпоративный стиль, медицинская основа, продуктовый аналитический слой и умеренные узнаваемые акценты. Если хочется выглядеть смелее, усиливаем продуктовый слой и акцент; если безопаснее для ЛПУ и начальства — оставляем больше белого, таблиц и teal.</p>
         </div>
       </div>
     </section>
