@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ИнтелиМед — единый формат стиля v0.1</title>
+  <style>
+    :root {
+      --ink: #12323B;
+      --deep: #0B3A49;
+      --text: #203942;
+      --muted: #536A72;
+      --brand: #11627B;
+      --teal: #0F6B74;
+      --mint: #2DD4BF;
+      --cyan: #D0EFF1;
+      --cyan-2: #B0D8D8;
+      --paper: #FDFEFC;
+      --soft: #F4F8F8;
+      --line: #D8E6E7;
+      --amber: #F2B544;
+      --coral: #FF6F5E;
+      --indigo: #4056C7;
+      --success: #13856B;
+      --warning: #A15C00;
+      --critical: #B3261E;
+      --shadow: 0 22px 56px rgba(18, 50, 59, .11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font-family: Inter, Manrope, "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero-band {
+      color: #fff;
+      background: linear-gradient(135deg, var(--deep) 0%, var(--brand) 54%, var(--teal) 100%);
+    }
+
+    .topline {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .brand-lockup img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nav a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, .9);
+      background: rgba(255, 255, 255, .12);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .hero {
+      min-height: 570px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 56px;
+      align-items: center;
+      padding: 54px 0 62px;
+    }
+
+    .eyebrow {
+      color: var(--amber);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin-top: 14px;
+      font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+      font-size: 54px;
+      line-height: 1.04;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin-top: 20px;
+      color: rgba(255, 255, 255, .88);
+      font-size: 21px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .92);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .logo-stage {
+      min-height: 310px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
+    }
+
+    .logo-stage img {
+      width: 178px;
+      height: 178px;
+      object-fit: contain;
+    }
+
+    .section {
+      padding: 52px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      color: var(--ink);
+      font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+      font-size: 34px;
+      line-height: 1.14;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .decision {
+      min-height: 190px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .decision b {
+      display: block;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.18;
+    }
+
+    .decision p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .decision .bar {
+      width: 58px;
+      height: 6px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      background: var(--brand);
+    }
+
+    .decision:nth-child(2) .bar {
+      background: var(--mint);
+    }
+
+    .decision:nth-child(3) .bar {
+      background: var(--indigo);
+    }
+
+    .decision:nth-child(4) .bar {
+      background: var(--coral);
+    }
+
+    .logo-rule {
+      display: grid;
+      grid-template-columns: 330px minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .logo-inspection {
+      min-height: 350px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-inspection img {
+      width: 210px;
+      height: 210px;
+      object-fit: contain;
+    }
+
+    .rule-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      min-height: 78px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .rule-label {
+      color: var(--brand);
+      font-weight: 850;
+    }
+
+    .rule p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .palette-block {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .palette-block h3 {
+      padding: 16px 16px 0;
+      color: var(--ink);
+      font-size: 20px;
+    }
+
+    .palette-block p {
+      padding: 8px 16px 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .swatch {
+      min-height: 82px;
+      display: flex;
+      align-items: end;
+      padding: 9px;
+      color: var(--ink);
+      font-family: "JetBrains Mono", "Roboto Mono", Consolas, monospace;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .swatch.dark {
+      color: #fff;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .type-sample,
+    .usage-panel {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .type-big {
+      color: var(--brand);
+      font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+      font-size: 42px;
+      line-height: 1.04;
+      font-weight: 850;
+    }
+
+    .type-copy {
+      margin-top: 18px;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .type-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .usage-panel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .usage {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .usage:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .usage b {
+      color: var(--ink);
+    }
+
+    .usage span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .mockups {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+
+    .slide-mock,
+    .social-mock {
+      position: relative;
+      overflow: hidden;
+      min-height: 330px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .slide-mock {
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(208, 239, 241, .48), rgba(253, 254, 252, 1) 44%),
+        #fff;
+    }
+
+    .slide-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .slide-top img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .slide-top span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .slide-title {
+      max-width: 590px;
+      margin-top: 56px;
+      color: var(--ink);
+      font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 850;
+    }
+
+    .slide-title strong {
+      color: var(--brand);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .metric {
+      min-height: 86px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .metric b {
+      display: block;
+      color: var(--brand);
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .social-mock {
+      min-height: 330px;
+      padding: 24px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--deep), var(--brand) 58%, var(--teal));
+    }
+
+    .social-mock img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .social-label {
+      display: inline-flex;
+      margin-top: 44px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--amber);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .social-title {
+      max-width: 360px;
+      margin-top: 12px;
+      font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+      font-size: 34px;
+      line-height: 1.05;
+      font-weight: 850;
+    }
+
+    .social-note {
+      max-width: 340px;
+      margin-top: 14px;
+      color: rgba(255, 255, 255, .82);
+      font-size: 16px;
+    }
+
+    .accent-strip {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      width: 84px;
+      height: 10px;
+      border-radius: 8px;
+      background: var(--coral);
+    }
+
+    .next-box {
+      padding: 28px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand), var(--teal) 58%, var(--deep));
+    }
+
+    .next-box h2 {
+      color: #fff;
+    }
+
+    .next-box p {
+      max-width: 880px;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .88);
+      font-size: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .logo-rule,
+      .type-grid,
+      .mockups {
+        grid-template-columns: 1fr;
+      }
+
+      .decision-grid,
+      .palette-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-points,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .decision-grid,
+      .palette-grid,
+      .swatches {
+        grid-template-columns: 1fr;
+      }
+
+      .rule,
+      .usage {
+        grid-template-columns: 1fr;
+      }
+
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-band">
+    <div class="shell">
+      <div class="topline">
+        <div class="brand-lockup">
+          <img src="assets/logo.jpg" alt="Логотип ИнтелиМед">
+          <span>ИнтелиМед</span>
+        </div>
+        <nav class="nav" aria-label="Разделы">
+          <a href="#logo">Логотип</a>
+          <a href="#palette">Цвета</a>
+          <a href="#type">Шрифты</a>
+          <a href="#mockups">Носители</a>
+        </nav>
+      </div>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Единый формат стиля v0.1</div>
+          <h1>Спокойная медицинская точность + современный продуктовый слой</h1>
+          <p class="lead">Одна система для презентаций, документов, demo, dashboard, сайта и публичных материалов. Логотип сохраняется как геометрия; менять можно только цветовые версии после утверждения палитры.</p>
+          <div class="hero-points">
+            <div class="pill">60% клиническое доверие</div>
+            <div class="pill">25% IT-продукт и данные</div>
+            <div class="pill">15% управление и медиа-акцент</div>
+          </div>
+        </div>
+        <div class="logo-stage" aria-label="Исходный логотип без изменения геометрии">
+          <img src="assets/logo.jpg" alt="Логотип сохраняется без разворота и изменения формы">
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="direction">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Что вырисовывается</h2>
+          <p>Не пять разных брендов, а один стиль с режимами применения. На согласование лучше идти с этой рамкой и выбрать, какой акцент усилить.</p>
+        </div>
+        <div class="decision-grid">
+          <div class="decision">
+            <div class="bar"></div>
+            <b>Клиническое доверие</b>
+            <p>Белый фон, темный текст, спокойный teal, минимум декоративности. Главный режим для начальства и ЛПУ.</p>
+          </div>
+          <div class="decision">
+            <div class="bar"></div>
+            <b>IT-продукт</b>
+            <p>Dashboard, KPI, маршруты, mint и indigo для аналитики. Показывает, что это не бумажный регистр.</p>
+          </div>
+          <div class="decision">
+            <div class="bar"></div>
+            <b>Управление</b>
+            <p>Roadmap, статусы, этапы внедрения, региональная логика. Хорошо для рабочих групп и пилота.</p>
+          </div>
+          <div class="decision">
+            <div class="bar"></div>
+            <b>Публичный сигнал</b>
+            <p>Коралл и янтарь точечно: обложки, соцсети, акцент на важном. Не больше 5-10% макета.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="logo">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Логотип</h2>
+          <p>Геометрию не меняем. Можно только перекрасить знак в утвержденные цвета после подготовки технических версий.</p>
+        </div>
+        <div class="logo-rule">
+          <div class="logo-inspection">
+            <img src="assets/logo.jpg" alt="Исходный логотип ИнтелиМед">
+          </div>
+          <div class="rule-list">
+            <div class="rule">
+              <div class="rule-label">Можно</div>
+              <p>Full color, mono teal, mono ink, mono white. Только цветовые версии без изменения формы.</p>
+            </div>
+            <div class="rule">
+              <div class="rule-label">Нельзя</div>
+              <p>Поворачивать, растягивать, менять наклон, рамку, букву, пропорции, просветы и композицию.</p>
+            </div>
+            <div class="rule">
+              <div class="rule-label">Нужно</div>
+              <p>Подготовить нормальный SVG/PDF/PNG и проверить читаемость на малых размерах.</p>
+            </div>
+            <div class="rule">
+              <div class="rule-label">Важно</div>
+              <p>Сам знак не становится фоновым паттерном. Декоративные формы живут отдельно от логотипа.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="palette">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Цвета и гамма</h2>
+          <p>Основа остается медицински спокойной. Технологичность появляется через данные, сетку и акценты, а не через тотальный неон.</p>
+        </div>
+        <div class="palette-grid">
+          <article class="palette-block">
+            <h3>Брендовая база</h3>
+            <p>Для документов, презентаций и сайта.</p>
+            <div class="swatches">
+              <div class="swatch dark" style="background:#12323B">#12323B</div>
+              <div class="swatch dark" style="background:#11627B">#11627B</div>
+              <div class="swatch dark" style="background:#0F6B74">#0F6B74</div>
+              <div class="swatch" style="background:#D0EFF1">#D0EFF1</div>
+              <div class="swatch" style="background:#B0D8D8">#B0D8D8</div>
+              <div class="swatch" style="background:#FDFEFC">#FDFEFC</div>
+            </div>
+          </article>
+
+          <article class="palette-block">
+            <h3>Продукт и аналитика</h3>
+            <p>Для dashboard, KPI и AI-слоя.</p>
+            <div class="swatches">
+              <div class="swatch dark" style="background:#0B3A49">#0B3A49</div>
+              <div class="swatch dark" style="background:#11627B">#11627B</div>
+              <div class="swatch" style="background:#2DD4BF">#2DD4BF</div>
+              <div class="swatch dark" style="background:#4056C7">#4056C7</div>
+              <div class="swatch" style="background:#F4F8F8">#F4F8F8</div>
+              <div class="swatch" style="background:#D8E6E7">#D8E6E7</div>
+            </div>
+          </article>
+
+          <article class="palette-block">
+            <h3>Акценты и статусы</h3>
+            <p>Только по роли, не как украшение.</p>
+            <div class="swatches">
+              <div class="swatch" style="background:#F2B544">#F2B544</div>
+              <div class="swatch" style="background:#FF6F5E">#FF6F5E</div>
+              <div class="swatch dark" style="background:#13856B">#13856B</div>
+              <div class="swatch dark" style="background:#A15C00">#A15C00</div>
+              <div class="swatch dark" style="background:#B3261E">#B3261E</div>
+              <div class="swatch dark" style="background:#0B3A49">#0B3A49</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="type">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Шрифты</h2>
+          <p>Основная пара должна выдерживать и презентацию начальнику, и таблицы, и интерфейсные подписи.</p>
+        </div>
+        <div class="type-grid">
+          <div class="type-sample">
+            <div class="type-big">ЛИС БАК как управляемый контур бактериологии</div>
+            <p class="type-copy">Заголовки — Manrope SemiBold/Bold. Текст, таблицы, подписи и интерфейсные элементы — Inter Regular/Medium.</p>
+            <p class="type-note">Fallback для PowerPoint: Aptos, Arial, Calibri. Декоративные шрифты не делаем основой бренда.</p>
+          </div>
+          <div class="usage-panel">
+            <div class="usage">
+              <b>Заголовки</b>
+              <span>Manrope, 30-52 pt, уверенное начертание.</span>
+            </div>
+            <div class="usage">
+              <b>Текст</b>
+              <span>Inter, 18-22 pt на рабочих слайдах.</span>
+            </div>
+            <div class="usage">
+              <b>Таблицы</b>
+              <span>Inter, минимум 12 pt, лучше 14 pt.</span>
+            </div>
+            <div class="usage">
+              <b>Техподписи</b>
+              <span>JetBrains Mono или Roboto Mono только для ID, кода и коротких меток.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mockups">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Как это выглядит на носителях</h2>
+          <p>Стиль должен держаться на слайдах и публичных карточках, но без ощущения, что мы меняем знак или уходим в рекламу ради рекламы.</p>
+        </div>
+        <div class="mockups">
+          <div class="slide-mock">
+            <div class="slide-top">
+              <img src="assets/logo.jpg" alt="Логотип ИнтелиМед">
+              <span>Встреча / ЛИС БАК / пилот</span>
+            </div>
+            <div class="slide-title">Фтизиатрическая бактериология как <strong>управляемый маршрут данных</strong></div>
+            <div class="metrics">
+              <div class="metric"><b>1</b><span>маршрут пробы и результата</span></div>
+              <div class="metric"><b>3</b><span>уровня: лаборатория, врач, регион</span></div>
+              <div class="metric"><b>90</b><span>дней на пилотную рамку</span></div>
+            </div>
+          </div>
+
+          <div class="social-mock">
+            <img src="assets/logo.jpg" alt="Логотип ИнтелиМед">
+            <div class="social-label">ЛИС БАК</div>
+            <div class="social-title">Сроки видно до просрочки</div>
+            <p class="social-note">Публичный акцент есть, но логотип стоит ровно и не превращается в декоративную форму.</p>
+            <div class="accent-strip" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="next-box">
+          <h2>Что выбрать перед походом к руководителю</h2>
+          <p>Стартовый баланс: 60% клиническое доверие, 25% IT-продукт, 10% управленческая строгость, 5% публичный акцент. Если хочется выглядеть смелее, усиливаем продуктовый слой и медиа-акцент; если безопаснее для ЛПУ и начальства — оставляем больше белого, таблиц и teal.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
