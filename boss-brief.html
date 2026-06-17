@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ИнтелиМед: короткая версия стиля для руководителя</title>
+  <style>
+    :root {
+      --ink: #12323B;
+      --deep: #0B3A49;
+      --text: #203942;
+      --muted: #536A72;
+      --brand: #11627B;
+      --teal: #0F6B74;
+      --mint: #2DD4BF;
+      --cyan: #D0EFF1;
+      --paper: #FDFEFC;
+      --soft: #F4F8F8;
+      --line: #D8E6E7;
+      --amber: #F2B544;
+      --coral: #FF6F5E;
+      --indigo: #4056C7;
+      --success: #13856B;
+      --warning: #A15C00;
+      --critical: #B3261E;
+      --shadow: 0 20px 52px rgba(18, 50, 59, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font-family: Inter, Manrope, "Segoe UI", Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    .shell {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(253, 254, 252, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .top-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nav a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--soft);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .screen {
+      min-height: calc(100vh - 70px);
+      display: grid;
+      align-items: center;
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      color: #fff;
+      background: linear-gradient(135deg, var(--deep), var(--brand) 54%, var(--teal));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--amber);
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-top: 18px;
+      color: #fff;
+      font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: .98;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin-top: 24px;
+      color: rgba(255, 255, 255, .88);
+      font-size: 22px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .hero-point {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .94);
+      font-weight: 850;
+    }
+
+    .logo-panel {
+      min-height: 310px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
+    }
+
+    .logo-panel img {
+      width: 178px;
+      height: 178px;
+      object-fit: contain;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(0, .95fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      color: var(--ink);
+      font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.06;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .panel {
+      min-height: 310px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      color: var(--ink);
+      font-size: 25px;
+      line-height: 1.12;
+    }
+
+    .panel p {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .fragment-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .fragment {
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .after .fragment {
+      border-left: 6px solid var(--brand);
+      background: #F7FBFB;
+    }
+
+    .before .fragment {
+      color: var(--muted);
+      background: #F7F1EF;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+
+    .palette-rail {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rail {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .rail-title {
+      padding: 14px 16px 0;
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .rail-caption {
+      padding: 6px 16px 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .swatch {
+      min-height: 72px;
+      padding: 10px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .light-text {
+      color: var(--ink);
+    }
+
+    .accent-rule {
+      min-height: 100%;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .accent-rule h3 {
+      font-size: 28px;
+      line-height: 1.12;
+    }
+
+    .accent-rule p {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, .84);
+      font-size: 17px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .chip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .12);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .logo-card {
+      min-height: 370px;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-card img {
+      width: 205px;
+      height: 205px;
+      object-fit: contain;
+    }
+
+    .logo-versions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .logo-version {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .logo-version.dark {
+      border-color: var(--ink);
+      color: #fff;
+      background: var(--ink);
+    }
+
+    .logo-version img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+
+    .logo-version b {
+      display: block;
+      color: var(--ink);
+      font-size: 17px;
+    }
+
+    .logo-version p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .logo-version.dark b,
+    .logo-version.dark p {
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .dashboard-wrap {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .kpi-column {
+      display: grid;
+      gap: 12px;
+    }
+
+    .kpi {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .kpi span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .kpi strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: 38px;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi em {
+      display: inline-flex;
+      margin-top: 12px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--brand);
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .dashboard {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .dashboard-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 20px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--deep), var(--brand));
+    }
+
+    .dashboard-head h3 {
+      font-size: 24px;
+      line-height: 1.12;
+    }
+
+    .dashboard-head p {
+      color: rgba(255, 255, 255, .82);
+      font-size: 14px;
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      padding: 16px 20px;
+      background: var(--soft);
+    }
+
+    .route div {
+      min-height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .route div:nth-child(2) {
+      border-bottom: 5px solid var(--mint);
+    }
+
+    .route div:nth-child(3) {
+      border-bottom: 5px solid var(--indigo);
+    }
+
+    .route div:nth-child(4) {
+      border-bottom: 5px solid var(--amber);
+    }
+
+    .table {
+      padding: 6px 20px 20px;
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.1fr .7fr .75fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 48px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .table-row.header {
+      color: var(--ink);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .num {
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      font-weight: 950;
+    }
+
+    .status {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 28px;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--warning);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .ok {
+      background: var(--success);
+    }
+
+    .crit {
+      background: var(--critical);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .media-card {
+      min-height: 230px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .media-card b {
+      display: block;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.14;
+    }
+
+    .media-card p {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .stripe {
+      width: 58px;
+      height: 7px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background: var(--brand);
+    }
+
+    .media-card:nth-child(2) .stripe {
+      background: var(--mint);
+    }
+
+    .media-card:nth-child(3) .stripe {
+      background: var(--indigo);
+    }
+
+    .media-card:nth-child(4) .stripe {
+      background: var(--amber);
+    }
+
+    .decision-screen {
+      color: #fff;
+      background: var(--ink);
+    }
+
+    .decision-screen h2 {
+      color: #fff;
+    }
+
+    .decision-screen .section-head p {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .decision-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .decision {
+      min-height: 170px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .decision b {
+      display: block;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .decision p {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 15px;
+    }
+
+    .final-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .final-links a {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 13px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .final-links a.primary {
+      background: var(--amber);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head,
+      .two-col,
+      .rule-grid,
+      .logo-grid,
+      .dashboard-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .media-grid,
+      .decision-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .top-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .screen {
+        min-height: auto;
+        padding: 42px 0;
+      }
+
+      .media-grid,
+      .decision-list,
+      .swatches,
+      .route {
+        grid-template-columns: 1fr;
+      }
+
+      .table-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="shell top-inner">
+      <div class="brand">
+        <img src="assets/logo-refresh-teal-preview.png" alt="Логотип ИнтелиМед">
+        <span>ИнтелиМед: короткая версия</span>
+      </div>
+      <nav class="nav" aria-label="Разделы">
+        <a href="#before-after">До/после</a>
+        <a href="#palette">Палитра</a>
+        <a href="#logo">Логотип</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#decision">Утверждаем</a>
+        <a href="index.html">Полный гайд</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="screen hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">5-7 экранов для защиты</div>
+          <h1>Единый стиль, который держит медицину и IT</h1>
+          <p>Не новая красивая картинка, а управляемая система для страницы компании, лендингов продуктов, презентаций, PDF, печати и dashboard.</p>
+          <div class="hero-points">
+            <div class="hero-point">Медицинское доверие</div>
+            <div class="hero-point">Продуктовая аналитика</div>
+            <div class="hero-point">Умеренный акцент</div>
+          </div>
+        </div>
+        <div class="logo-panel">
+          <img src="assets/logo-refresh-teal-preview.png" alt="Обновленная цветовая версия логотипа ИнтелиМед">
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="before-after">
+      <div class="shell">
+        <div class="section-head">
+          <h2>До/после: что меняется</h2>
+          <p>Главный смысл для руководителя: мы не перекрашиваем материалы по вкусу, а собираем единый корпоративный язык для всей линейки.</p>
+        </div>
+        <div class="two-col">
+          <div class="panel before">
+            <h3>Было разрозненно</h3>
+            <p>Материалы могут выглядеть как отдельные презентации, отчеты и страницы без общего визуального каркаса.</p>
+            <div class="fragment-list">
+              <div class="fragment">разные акценты без роли</div>
+              <div class="fragment">логотип как отдельный старый артефакт</div>
+              <div class="fragment">таблицы и dashboard не связаны со стилем</div>
+              <div class="fragment">печатка, сайт и PPTX говорят разным языком</div>
+            </div>
+          </div>
+          <div class="panel after">
+            <h3>Станет системой</h3>
+            <p>Один набор цветов, шрифтов, логотипных правил и модульной сетки для всех носителей.</p>
+            <div class="fragment-list">
+              <div class="fragment">teal/ink как узнаваемая база</div>
+              <div class="fragment">акценты строго по задачам</div>
+              <div class="fragment">dashboard доказывает продуктовый слой</div>
+              <div class="fragment">одинаковая логика для сайта, PPTX, PDF и печати</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="palette">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Цвета: спокойно, но не безлико</h2>
+          <p>Яркость нужна, но она должна работать как сигнал. Если положить ее внутрь логотипа, знак быстро станет дешевле; если держать рядом, стиль выглядит взрослее.</p>
+        </div>
+        <div class="rule-grid">
+          <div class="palette-rail">
+            <div class="rail">
+              <div class="rail-title">База бренда</div>
+              <div class="rail-caption">медицина, документы, доверие, читаемость</div>
+              <div class="swatches">
+                <div class="swatch" style="background:#12323B">Ink<br>#12323B</div>
+                <div class="swatch" style="background:#11627B">Teal<br>#11627B</div>
+                <div class="swatch" style="background:#0F6B74">Deep teal<br>#0F6B74</div>
+                <div class="swatch light-text" style="background:#FDFEFC">Paper<br>#FDFEFC</div>
+              </div>
+            </div>
+            <div class="rail">
+              <div class="rail-title">Продуктовый слой</div>
+              <div class="rail-caption">данные, маршруты, аналитика, AI-блоки</div>
+              <div class="swatches">
+                <div class="swatch light-text" style="background:#D0EFF1">Cyan<br>#D0EFF1</div>
+                <div class="swatch light-text" style="background:#2DD4BF">Mint<br>#2DD4BF</div>
+                <div class="swatch" style="background:#4056C7">Indigo<br>#4056C7</div>
+                <div class="swatch light-text" style="background:#F4F8F8">Soft<br>#F4F8F8</div>
+              </div>
+            </div>
+            <div class="rail">
+              <div class="rail-title">Сигналы</div>
+              <div class="rail-caption">статусы отдельно от рекламных акцентов</div>
+              <div class="swatches">
+                <div class="swatch" style="background:#13856B">Успех<br>#13856B</div>
+                <div class="swatch" style="background:#A15C00">Warning<br>#A15C00</div>
+                <div class="swatch" style="background:#B3261E">Риск<br>#B3261E</div>
+                <div class="swatch light-text" style="background:#F2B544">Действие<br>#F2B544</div>
+              </div>
+            </div>
+          </div>
+          <div class="accent-rule">
+            <h3>Правило акцента</h3>
+            <p>На один макет выбираем один главный акцент. Amber: действие и следующий шаг. Mint: данные. Indigo: аналитика и AI. Coral: публичный крючок, а не медицинский статус.</p>
+            <p>Статусы должны дублироваться словом или иконкой. Цвет не должен быть единственным носителем смысла.</p>
+            <div class="chips">
+              <span class="chip">логотип не красим в акценты</span>
+              <span class="chip">coral не смешиваем с красным риском</span>
+              <span class="chip">mint/coral не мелкий текст</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="logo">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Логотип: не новый, а приведенный к системе</h2>
+          <p>Геометрию не трогаем. Можно только цветовые версии существующего знака, собранные после утверждения из векторного исходника.</p>
+        </div>
+        <div class="logo-grid">
+          <div class="logo-card">
+            <img src="assets/logo-refresh-teal-preview.png" alt="Full color refresh логотипа ИнтелиМед">
+          </div>
+          <div class="logo-versions">
+            <div class="logo-version">
+              <img src="assets/logo-refresh-teal-preview.png" alt="Full color refresh">
+              <div>
+                <b>Full color refresh</b>
+                <p>Основной кандидат: ink + teal, без изменения формы.</p>
+              </div>
+            </div>
+            <div class="logo-version">
+              <img src="assets/logo-mono-ink-preview.png" alt="Mono ink">
+              <div>
+                <b>Mono ink</b>
+                <p>Документы, печать, строгие PDF и светлый фон.</p>
+              </div>
+            </div>
+            <div class="logo-version dark">
+              <img src="assets/logo-mono-white-preview.png" alt="Mono white">
+              <div>
+                <b>Mono white</b>
+                <p>Темные титулы, заставки, фотофон с контрастом.</p>
+              </div>
+            </div>
+            <div class="logo-version">
+              <img src="assets/logo-mono-brand-teal-preview.png" alt="Mono brand teal">
+              <div>
+                <b>Mono brand teal</b>
+                <p>Служебная интерфейсная версия, не основная.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="dashboard">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Dashboard доказывает, что это IT-продукт</h2>
+          <p>Самый важный демонстрационный экран: таблица, маршрут, KPI и статусы. Он показывает, что стиль выдерживает рабочую медицину, а не только обложку.</p>
+        </div>
+        <div class="dashboard-wrap">
+          <div class="kpi-column">
+            <div class="kpi">
+              <span>Материалы в маршруте</span>
+              <strong>730</strong>
+              <em>в срок</em>
+            </div>
+            <div class="kpi">
+              <span>Результаты за период</span>
+              <strong>123 630</strong>
+              <em>контроль</em>
+            </div>
+            <div class="kpi">
+              <span>Проверено записей</span>
+              <strong>311 576</strong>
+              <em>аналитика</em>
+            </div>
+          </div>
+          <div class="dashboard">
+            <div class="dashboard-head">
+              <div>
+                <h3>1С: ИнтелиМед. Бактериологическая лаборатория</h3>
+                <p>Маршрут пробы, сроки, результат, управленческий контроль</p>
+              </div>
+              <img src="assets/logo-mono-white-preview.png" alt="Белая версия логотипа" style="width:54px;height:54px;object-fit:contain">
+            </div>
+            <div class="route">
+              <div>Проба</div>
+              <div>Лаборатория</div>
+              <div>Врач</div>
+              <div>Регион</div>
+            </div>
+            <div class="table">
+              <div class="table-row header">
+                <div>Показатель</div>
+                <div>Значение</div>
+                <div>Статус</div>
+              </div>
+              <div class="table-row">
+                <div>Новые материалы</div>
+                <div class="num">730</div>
+                <div><span class="status ok">в срок</span></div>
+              </div>
+              <div class="table-row">
+                <div>Ожидают подтверждения</div>
+                <div class="num">42</div>
+                <div><span class="status">контроль</span></div>
+              </div>
+              <div class="table-row">
+                <div>Риск просрочки</div>
+                <div class="num">14</div>
+                <div><span class="status crit">риск</span></div>
+              </div>
+              <div class="table-row">
+                <div>AI-сравнение с правилами</div>
+                <div class="num">91%</div>
+                <div><span class="status" style="background:#4056C7">аналитика</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="media">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Один стиль для всех носителей</h2>
+          <p>Разные форматы меняют плотность и композицию, но не создают новый бренд каждый раз.</p>
+        </div>
+        <div class="media-grid">
+          <div class="media-card">
+            <div class="stripe"></div>
+            <b>Страница компании</b>
+            <p>Спокойная основа, доверие, факты, понятная продуктовая линейка.</p>
+          </div>
+          <div class="media-card">
+            <div class="stripe"></div>
+            <b>Лендинг продукта</b>
+            <p>Больше dashboard, маршрута пользователя, KPI и доказательства пользы.</p>
+          </div>
+          <div class="media-card">
+            <div class="stripe"></div>
+            <b>Презентации и PDF</b>
+            <p>Один вывод на слайд, крупные заголовки, таблицы без визуального шума.</p>
+          </div>
+          <div class="media-card">
+            <div class="stripe"></div>
+            <b>Печать и digital</b>
+            <p>Читаемость, контраст, логотип без эффектов, акценты только крупно.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen decision-screen" id="decision">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Что просим утвердить</h2>
+          <p>Решение сегодня: не финальный production-brandbook, а направление единой корпоративной системы v0.1.</p>
+        </div>
+        <div class="decision-list">
+          <div class="decision">
+            <b>Палитра</b>
+            <p>Ink/teal как база, mint/indigo/amber/coral как ограниченные акценты по роли.</p>
+          </div>
+          <div class="decision">
+            <b>Логотип</b>
+            <p>Геометрия неизменна. Разрешены только технические цветовые версии.</p>
+          </div>
+          <div class="decision">
+            <b>Типографика</b>
+            <p>Manrope для заголовков, Inter для текста, таблиц, интерфейса и чисел.</p>
+          </div>
+          <div class="decision">
+            <b>Носители</b>
+            <p>Один стиль для сайта компании, продуктовых лендингов, PPTX, PDF, печати и digital.</p>
+          </div>
+          <div class="decision">
+            <b>Dashboard</b>
+            <p>Отдельно доработать сильный рабочий экран ЛИС БАК как главный proof-point.</p>
+          </div>
+          <div class="decision">
+            <b>Следующий шаг</b>
+            <p>PPTX-шаблон, web/landing-блоки и финальные версии логотипа из вектора.</p>
+          </div>
+        </div>
+        <div class="final-links">
+          <a class="primary" href="index.html">Полный гайд</a>
+          <a href="unified-style.html">Длинная версия</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
